@@ -1,2 +1,2 @@
-# Jowaisas.github.io
+# Cole Jowaisas
 Personal Website
