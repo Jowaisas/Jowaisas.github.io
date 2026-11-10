@@ -1,0 +1,201 @@
+/* ===== Variables: change these to restyle the whole site ===== */
+:root {
+    --bg: #1c1a33;          /* page background */
+    --surface: #35315B;     /* cards, header (your original color) */
+    --text: #f2f0ff;
+    --text-muted: #b9b4d9;
+    --accent: #ff8a5c;      /* buttons and links */
+    --radius: 10px;
+    --max-width: 1100px;
+}
+
+/* ===== Reset: predictable sizing everywhere ===== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;   /* smooth scrolling for #links */
+}
+
+body {
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+}
+
+img {
+    max-width: 100%;   /* images never overflow their container */
+    display: block;
+}
+
+a {
+    color: var(--accent);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Centers content and keeps it from getting too wide */
+.container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* ===== Header / nav (flexbox) ===== */
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background-color: var(--surface);
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+}
+
+.logo {
+    color: var(--text);
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+
+.nav-links {
+    display: flex;
+    gap: 1.5rem;
+    list-style: none;
+}
+
+.nav-links a {
+    color: var(--text);
+}
+
+/* ===== Hero banner ===== */
+.hero {
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    /* Dark gradient over the image keeps text readable */
+    background-image:
+        linear-gradient(rgba(28, 26, 51, 0.6), rgba(28, 26, 51, 0.9)),
+        url("assets/images/GamesHero.png");
+    background-size: cover;
+    background-position: center;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    line-height: 1.1;
+}
+
+.tagline {
+    font-size: 1.25rem;
+    color: var(--text-muted);
+    margin: 1rem 0 2rem;
+    max-width: 40ch;
+}
+
+.button {
+    display: inline-block;
+    background-color: var(--accent);
+    color: #1c1a33;
+    font-weight: 600;
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--radius);
+    transition: transform 0.15s ease;
+}
+
+.button:hover {
+    text-decoration: none;
+    transform: translateY(-2px);
+}
+
+/* ===== Sections ===== */
+.section {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+}
+
+.section h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+/* ===== Project grid (CSS grid) ===== */
+.project-grid {
+    display: grid;
+    /* As many 260px+ columns as fit, then they wrap. Responsive with no media query. */
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+}
+
+.project-card {
+    background-color: var(--surface);
+    border-radius: var(--radius);
+    overflow: hidden;   /* clips the image to the rounded corners */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+.project-card img {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+}
+
+.project-info {
+    padding: 1rem 1.25rem 1.25rem;
+}
+
+.project-info h3 {
+    margin-bottom: 0.5rem;
+}
+
+.project-info p {
+    color: var(--text-muted);
+    margin-bottom: 0.75rem;
+}
+
+/* ===== Contact ===== */
+.contact-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    list-style: none;
+}
+
+/* ===== Footer ===== */
+.site-footer {
+    text-align: center;
+    padding: 2rem 1rem;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+/* ===== Phones ===== */
+@media (max-width: 600px) {
+    .hero h1 {
+        font-size: 2.25rem;
+    }
+
+    .nav-links {
+        gap: 1rem;
+    }
+
+    .logo {
+        font-size: 1rem;
+    }
+}
