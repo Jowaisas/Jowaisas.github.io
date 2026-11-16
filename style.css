@@ -21,7 +21,7 @@ html {
 }
 
 body {
-    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    font-family: "Lexend", system-ui, sans-serif;   /* fallbacks if Lexend fails to load */
     background-color: var(--bg);
     color: var(--text);
     line-height: 1.6;
@@ -86,18 +86,23 @@ a:hover {
     align-items: center;
     /* Dark gradient over the image keeps text readable */
     background-image:
-        linear-gradient(rgba(28, 26, 51, 0.6), rgba(28, 26, 51, 0.9)),
+        linear-gradient(rgba(28, 26, 51, 0.2), rgba(28, 26, 51, 0.6)),
         url("assets/images/GamesHero.png");
     background-size: cover;
     background-position: center;
 }
 
-.hero h1 {
-    font-size: 3rem;
-    line-height: 1.1;
-}
+    .hero h1 {
+        text-align: center;
+        -webkit-text-stroke: 10px black;
+        paint-order: stroke fill;
+        text-shadow: 4px 4px 6px rgba(0, 0, 0, 0.7);
+        font-size: 3rem;
+        line-height: 1.1;
+    }
 
 .tagline {
+    text-align: center;
     font-size: 1.25rem;
     color: var(--text-muted);
     margin: 1rem 0 2rem;
@@ -152,8 +157,21 @@ a:hover {
 
 .project-card img {
     width: 100%;
-    aspect-ratio: 16 / 9;
-    object-fit: cover;
+    height: auto;
+    /* Steam Main Capsule shape (1232 x 706). Every card's image area is this shape,
+       so a hover video at the same size can swap in later without the card jumping. */
+    aspect-ratio: 1232 / 706;
+    object-fit: cover;   /* if an image isn't exactly this shape, crop it instead of stretching */
+    transition: filter 0.2s ease;
+}
+
+/* The clickable image at the top of each card */
+.project-image-link {
+    display: block;   /* makes the whole image area clickable, with no gap underneath */
+}
+
+.project-image-link:hover img {
+    filter: brightness(1.1);   /* slight brighten so it's clear the image is clickable */
 }
 
 .project-info {
@@ -167,6 +185,143 @@ a:hover {
 .project-info p {
     color: var(--text-muted);
     margin-bottom: 0.75rem;
+}
+
+/* Genre line right under the title */
+.project-genre {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* Awards and sales, one plain line of text each */
+.project-highlights {
+    list-style: none;
+    margin-bottom: 0.75rem;
+}
+
+.project-highlights li {
+    color: var(--text-muted);
+}
+
+/* Your roles on the project */
+.project-info .project-roles {
+    color: var(--text);
+    font-size: 0.95rem;
+}
+
+/* ===== Individual project pages (projects/*.html) ===== */
+.project-page {
+    padding-top: 2rem;
+    padding-bottom: 4rem;
+}
+
+/* --- 1. Banner: library header with the logo layered on top --- */
+.project-banner {
+    position: relative;   /* lets the logo be positioned inside this box */
+    border-radius: var(--radius);
+    overflow: hidden;
+    margin-bottom: 2rem;
+}
+
+.project-banner-bg {
+    width: 100%;
+    height: auto;   /* banner keeps the header image's own shape */
+}
+
+.project-banner-logo {
+    position: absolute;
+    /* Centered in the banner: move the logo's corner to the middle,
+       then shift it back by half its own width and height */
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 40%;   /* logo width relative to the banner */
+    height: auto;
+    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.6));   /* keeps the logo readable on busy art */
+}
+
+/* --- Two-column layout: trailer + details on the left, info on the right --- */
+.project-layout {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: auto 1fr;
+    grid-template-areas:
+        "trailer about"
+        "details about";
+    gap: 2rem 2.5rem;
+    align-items: start;
+}
+
+.project-trailer { grid-area: trailer; }
+.project-about   { grid-area: about; }
+.project-details { grid-area: details; }
+
+/* --- 2. Trailer: always 16:9, whatever the column width --- */
+.project-trailer iframe {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border: 0;
+    border-radius: var(--radius);
+}
+
+/* --- 3. Info text block --- */
+.project-about {
+    background-color: var(--surface);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+}
+
+.project-about h1 {
+    font-size: 1.75rem;
+    line-height: 1.2;
+}
+
+.project-about .project-genre {
+    color: var(--text-muted);
+    margin: 0.25rem 0 1rem;
+}
+
+.project-about p {
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+}
+
+/* --- 4. Details and roles lists --- */
+.project-details section {
+    margin-bottom: 2rem;
+}
+
+.project-details h2 {
+    font-size: 1.35rem;
+    margin-bottom: 0.75rem;
+}
+
+.project-details ul {
+    padding-left: 1.25rem;   /* room for the bullets */
+}
+
+.project-details li {
+    color: var(--text-muted);
+    margin-bottom: 0.4rem;
+}
+
+.project-details strong {
+    color: var(--text);
+    font-weight: 600;
+}
+
+/* Phones and narrow tablets: stack everything in one column */
+@media (max-width: 800px) {
+    .project-layout {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        grid-template-areas:
+            "trailer"
+            "about"
+            "details";
+    }
 }
 
 /* ===== Contact ===== */
