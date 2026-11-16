@@ -216,17 +216,17 @@ a:hover {
     padding-bottom: 4rem;
 }
 
-/* --- 1. Banner: library header with the logo layered on top --- */
+/* --- 1. Banner: library hero with the logo layered on top, full page width --- */
 .project-banner {
     position: relative;   /* lets the logo be positioned inside this box */
-    border-radius: var(--radius);
     overflow: hidden;
-    margin-bottom: 2rem;
 }
 
 .project-banner-bg {
     width: 100%;
-    height: auto;   /* banner keeps the header image's own shape */
+    height: auto;          /* banner keeps the hero image's own shape (about 3:1) */
+    max-height: 70vh;      /* on very wide screens, don't fill more than 70% of the window height... */
+    object-fit: cover;     /* ...crop the top and bottom instead of squashing the art */
 }
 
 .project-banner-logo {
@@ -237,6 +237,7 @@ a:hover {
     top: 50%;
     transform: translate(-50%, -50%);
     width: 40%;   /* logo width relative to the banner */
+    max-width: 700px;   /* so it doesn't get huge on very wide screens */
     height: auto;
     filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.6));   /* keeps the logo readable on busy art */
 }
