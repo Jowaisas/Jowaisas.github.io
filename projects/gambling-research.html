@@ -1,0 +1,126 @@
+---
+# Settings block for Jekyll. "project" must match the "project:" line in this game's articles
+# so they show up under Related Articles automatically.
+project: Gambling Research
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Gambling Research | Cole Jowaisas</title>
+    <meta name="description" content="Gambling Research by Cole Jowaisas.">
+    <!-- Lexend font from Google Fonts (weights 300-800) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300..800&display=swap" rel="stylesheet">
+    <!-- This page is inside projects/, so shared files start with ../ (up one folder) -->
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+    <header class="site-header">
+        <nav class="nav container">
+            <a href="../index.html" class="logo">Cole Jowaisas</a>
+            <ul class="nav-links">
+                <li><a href="../index.html#projects">Projects</a></li>
+                <li><a href="../articles/index.html">Articles</a></li>
+                <li><a href="../index.html#about">About</a></li>
+                <li><a href="../index.html#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- 1. Banner: library hero with the logo layered on top.
+         It sits outside <main class="container"> so it can stretch the full width of the page.
+         These two images don't exist yet: add them to assets/images/ with these names,
+         or change the src to match your files (and update width/height to their real size). -->
+    <div class="project-banner">
+        <img class="project-banner-bg" src="../assets/images/GamblingResearchLibraryHero.png" alt="" width="3840" height="1240">
+        <img class="project-banner-logo" src="../assets/images/GamblingResearchLogo.png" alt="Gambling Research logo" width="1172" height="660">
+    </div>
+
+    <main class="project-page container">
+
+        <div class="project-layout">
+
+            <!-- 2. Left: YouTube trailer. Replace VIDEO_ID with the code after "v=" in the YouTube URL. -->
+            <div class="project-trailer">
+                <iframe src="https://www.youtube-nocookie.com/embed/VIDEO_ID"
+                        title="Gambling Research video"
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+            </div>
+
+            <!-- 3. Right: information about the project -->
+            <aside class="project-about">
+                <h1>Gambling Research</h1>
+                <p class="project-genre"></p>
+                <ul class="project-highlights">
+                </ul>
+                <p></p>
+                <p></p>
+            </aside>
+
+            <!-- 4. Left, under the trailer: details, then roles -->
+            <div class="project-details">
+                <section>
+                    <h2>Details</h2>
+                    <ul>
+                        <li><strong>Platforms:</strong> </li>
+                        <li><strong>Development Time:</strong> </li>
+                        <li><strong>Engine:</strong> </li>
+                        <li><strong>Team:</strong> </li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2>Roles &amp; Responsibilities</h2>
+                    <ul>
+                        <li><strong></strong></li>
+                    </ul>
+                </section>
+            </div>
+
+        </div>
+
+        <!-- 5. Gallery: click a screenshot to enlarge it (handled by script.js).
+             To add one, copy an <a> line and change both the href and the src.
+             These screenshots don't exist yet: add them to assets/images/ with these names. -->
+        <section class="gallery-section">
+            <h2>Gallery</h2>
+            <div class="gallery">
+                <a href="../assets/images/GamblingResearchScreenshot1.webp" class="gallery-item"><img src="../assets/images/GamblingResearchScreenshot1.webp" alt="Gambling Research screenshot 1" width="800" height="450" loading="lazy"></a>
+                <a href="../assets/images/GamblingResearchScreenshot2.webp" class="gallery-item"><img src="../assets/images/GamblingResearchScreenshot2.webp" alt="Gambling Research screenshot 2" width="800" height="450" loading="lazy"></a>
+                <a href="../assets/images/GamblingResearchScreenshot3.webp" class="gallery-item"><img src="../assets/images/GamblingResearchScreenshot3.webp" alt="Gambling Research screenshot 3" width="800" height="450" loading="lazy"></a>
+            </div>
+        </section>
+
+        <!-- 6. Related articles: filled in automatically when the site is built.
+             Every article whose settings block has the same "project:" as this page is listed,
+             newest first. Nothing to edit here. The section stays hidden until there is one. -->
+        <section class="articles-section">
+            <h2>Related Articles</h2>
+            <div class="articles">
+                {% assign related = site.pages | where: "layout", "article" | where: "project", page.project | sort: "date", "first" | reverse %}
+                {% for article in related %}
+                <a href="{{ article.url | relative_url }}" class="article-card">
+                    <span class="article-label">{{ article.label | default: "Article" }}</span>
+                    <span class="article-title">{{ article.title }}</span>
+                    {% if article.lead %}<span class="article-summary">{{ article.lead }}</span>{% endif %}
+                    {% if article.date %}<span class="article-date">{{ article.date | date: "%B %Y" }}</span>{% endif %}
+                </a>
+                {% endfor %}
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="site-footer">
+        <p></p>
+    </footer>
+
+    <script src="../script.js"></script>
+</body>
+</html>
