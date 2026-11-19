@@ -106,6 +106,7 @@ project: Super Duper Siege
                 {% assign related = site.pages | where: "layout", "article" | where: "project", page.project | sort: "date", "first" | reverse %}
                 {% for article in related %}
                 <a href="{{ article.url | relative_url }}" class="article-card">
+                    {% if article.image %}<img class="article-card-image" src="{{ article.image | relative_url }}" alt="" width="800" height="450" loading="lazy">{% endif %}
                     <span class="article-label">{{ article.label | default: "Article" }}</span>
                     <span class="article-title">{{ article.title }}</span>
                     {% if article.lead %}<span class="article-summary">{{ article.lead }}</span>{% endif %}

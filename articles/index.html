@@ -43,6 +43,7 @@
         <div class="articles">
             {% for article in all_articles %}
             <a href="{{ article.url | relative_url }}" class="article-card">
+                {% if article.image %}<img class="article-card-image" src="{{ article.image | relative_url }}" alt="" width="800" height="450" loading="lazy">{% endif %}
                 <span class="article-label">
                     {{ article.label }}{% if article.label and article.project %} &middot; {% endif %}{{ article.project }}
                 </span>

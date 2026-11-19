@@ -1,14 +1,10 @@
 ---
-# Settings for this article. Jekyll reads this block and fills in the article layout.
 layout: article
 title: Fishing Minigame Iteration in Sip Fisher
 label: Design Breakdown
 project: Sip Fisher
 project_url: /projects/sip-fisher.html
-# The web address of the finished page (keeps spaces out of the URL)
 permalink: /articles/fishing-minigame-iteration.html
-# Optional extras. Remove the # at the start of a line to use it.
-# date: 2025-08-30
 # lead: One or two sentences summarizing the article, shown under the title.
 image: /assets/images/SipFisherScreenshot1.webp
 ---

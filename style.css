@@ -414,7 +414,20 @@ a:hover {
     border-radius: var(--radius);
     padding: 1.1rem 1.25rem;
     border-left: 3px solid var(--accent);
+    overflow: hidden;   /* clips the image to the rounded corners */
     transition: transform 0.15s ease, background-color 0.15s ease;
+}
+
+/* The article's main image ("image:" in its settings block), shown across the top of the card.
+   The negative margins cancel the card's padding so it reaches the edges. */
+.article-card-image {
+    display: block;
+    width: calc(100% + 2.5rem);
+    max-width: none;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    margin: -1.1rem -1.25rem 0.5rem;
 }
 
 .article-card:hover {
