@@ -402,8 +402,17 @@ a:hover {
 
 .articles {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    /* Cards are 280-340px wide and never widen to fill leftover space */
+    grid-template-columns: repeat(auto-fill, minmax(280px, 340px));
+    align-items: start;   /* each card is only as tall as its own content */
     gap: 1rem;
+}
+
+/* On phones, one card per row at full width */
+@media (max-width: 600px) {
+    .articles {
+        grid-template-columns: 1fr;
+    }
 }
 
 .article-card {
