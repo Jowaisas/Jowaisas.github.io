@@ -385,6 +385,61 @@ a:hover {
     }
 }
 
+/* --- 6. Related articles --- */
+.articles-section {
+    margin-top: 3rem;
+}
+
+/* Hide the whole section (heading included) until it has at least one article */
+.articles-section:not(:has(.article-card)) {
+    display: none;
+}
+
+.articles-section h2 {
+    font-size: 1.35rem;
+    margin-bottom: 1rem;
+}
+
+.articles {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1rem;
+}
+
+.article-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    background-color: var(--surface);
+    border-radius: var(--radius);
+    padding: 1.1rem 1.25rem;
+    border-left: 3px solid var(--accent);
+    transition: transform 0.15s ease, background-color 0.15s ease;
+}
+
+.article-card:hover {
+    text-decoration: none;
+    transform: translateY(-2px);
+    background-color: #403b6b;   /* slightly lighter than --surface */
+}
+
+.article-source {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-muted);
+}
+
+.article-title {
+    color: var(--text);
+    font-weight: 600;
+}
+
+.article-title::after {
+    content: " \2197";   /* ↗ arrow: opens in a new tab */
+    color: var(--accent);
+}
+
 /* --- Enlarged image viewer (created by script.js) --- */
 .lightbox {
     /* Fill the whole window with a dark background */
