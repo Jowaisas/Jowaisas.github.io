@@ -6,7 +6,7 @@ label: Design Breakdown
 project: Gambling Research
 project_url: /projects/gambling-research.html
 # The web address of the finished page (keeps spaces out of the URL)
-permalink: /articles/fishing-minigame-iteration.html
+permalink: /articles/presentation-gambling-research.html
 # Optional extras. Remove the # at the start of a line to use it.
 # date: 2025-08-30
 # lead: One or two sentences summarizing the article, shown under the title.

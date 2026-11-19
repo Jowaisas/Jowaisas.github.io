@@ -1,3 +1,8 @@
+---
+# Settings block for Jekyll. "project" must match the "project:" line in this game's articles
+# so they show up under Related Articles automatically.
+project: Super Duper Siege
+---
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -92,19 +97,21 @@
             </div>
         </section>
 
-        <!-- 6. Related articles: your own write-ups, stored in the articles/ folder.
-             To add one, copy the example <a> block out of the comment and fill it in.
-             The section stays hidden until it has at least one article. -->
+        <!-- 6. Related articles: filled in automatically when the site is built.
+             Every article whose settings block has the same "project:" as this page is listed,
+             newest first. Nothing to edit here. The section stays hidden until there is one. -->
         <section class="articles-section">
             <h2>Related Articles</h2>
             <div class="articles">
-                <!--
-                <a href="../articles/FILE-NAME.html" class="article-card">
-                    <span class="article-label">Design Breakdown</span>
-                    <span class="article-title">Article title</span>
-                    <span class="article-summary">One sentence on what the article covers.</span>
+                {% assign related = site.pages | where: "layout", "article" | where: "project", page.project | sort: "date", "first" | reverse %}
+                {% for article in related %}
+                <a href="{{ article.url | relative_url }}" class="article-card">
+                    <span class="article-label">{{ article.label | default: "Article" }}</span>
+                    <span class="article-title">{{ article.title }}</span>
+                    {% if article.lead %}<span class="article-summary">{{ article.lead }}</span>{% endif %}
+                    {% if article.date %}<span class="article-date">{{ article.date | date: "%B %Y" }}</span>{% endif %}
                 </a>
-                -->
+                {% endfor %}
             </div>
         </section>
 
