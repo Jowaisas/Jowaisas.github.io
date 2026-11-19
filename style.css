@@ -445,6 +445,29 @@ a:hover {
     font-size: 0.95rem;
 }
 
+.article-date {
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    margin-top: auto;   /* pins the date to the bottom of the card */
+    padding-top: 0.25rem;
+}
+
+
+/* ===== Articles list page (articles/index.html) ===== */
+.articles-page h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.articles-empty {
+    color: var(--text-muted);
+}
+
+/* Highlights the nav link for the page you're on */
+.nav-links a[aria-current="page"] {
+    color: var(--accent);
+}
+
 
 /* ===== Article pages (articles/*.html) ===== */
 .article-page {
@@ -639,8 +662,20 @@ a:hover {
         font-size: 2.25rem;
     }
 
+    /* Four nav links plus the name is tight on a phone: shrink them a bit,
+       and let the links drop to a second line if they still don't fit */
+    .nav {
+        height: auto;
+        min-height: 60px;
+        flex-wrap: wrap;
+        gap: 0.25rem 1rem;
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+    }
+
     .nav-links {
-        gap: 1rem;
+        gap: 0.9rem;
+        font-size: 0.9rem;
     }
 
     .logo {
