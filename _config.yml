@@ -1,0 +1,13 @@
+# Jekyll settings for GitHub Pages.
+# GitHub builds the site with Jekyll on every push. Only files that start with a
+# --- settings block (like the Markdown articles) are converted; every other file,
+# including all the existing .html pages, is published exactly as it is.
+
+title: Cole Jowaisas
+markdown: kramdown
+
+# Files and folders that shouldn't be published
+exclude:
+  - README.md
+  - .idea
+  - .claude

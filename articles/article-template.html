@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<!--
+    ARTICLE TEMPLATE
+    To write a new article:
+      1. Copy this file into the articles/ folder and rename it, e.g. sip-fisher-economy.html
+         (lowercase, hyphens instead of spaces).
+      2. Fill in the <title>, the description, and everything inside <main>.
+      3. Link to it from the project page's Related Articles section.
+    This template file itself isn't linked from anywhere, so visitors won't find it.
+-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Article Title | Cole Jowaisas</title>
+    <meta name="description" content="One-sentence summary of the article.">
+    <!-- Lexend font from Google Fonts (weights 300-800) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300..800&display=swap" rel="stylesheet">
+    <!-- This page is inside articles/, so shared files start with ../ (up one folder) -->
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+    <header class="site-header">
+        <nav class="nav container">
+            <a href="../index.html" class="logo">Cole Jowaisas</a>
+            <ul class="nav-links">
+                <li><a href="../index.html#projects">Projects</a></li>
+                <li><a href="../index.html#about">About</a></li>
+                <li><a href="../index.html#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="article-page container">
+
+        <!-- Link back to the project this article is about -->
+        <a href="../projects/sip-fisher.html" class="back-link">&larr; Sip Fisher</a>
+
+        <header class="article-header">
+            <p class="article-meta">Design Breakdown &middot; November 2026</p>
+            <h1>Article Title</h1>
+            <p class="article-lead">A one or two sentence summary of what this article covers and why it matters.</p>
+        </header>
+
+        <!-- Optional wide image at the top. Delete this line if you don't need one. -->
+        <img class="article-hero" src="../assets/images/SipFisherScreenshot1.webp" alt="Describe the image" width="800" height="450">
+
+        <div class="article-body">
+
+            <h2>Section Heading</h2>
+            <p>Write in regular paragraphs. Each paragraph goes in its own &lt;p&gt; tag.</p>
+            <p>Use <strong>bold</strong> for key terms and <a href="../projects/sip-fisher.html">links</a> to other pages.</p>
+
+            <h2>Another Section</h2>
+            <p>Lists are good for steps, goals or takeaways:</p>
+            <ul>
+                <li>First point</li>
+                <li>Second point</li>
+                <li>Third point</li>
+            </ul>
+
+            <!-- An image with a caption underneath -->
+            <figure>
+                <img src="../assets/images/SipFisherScreenshot2.webp" alt="Describe the image" width="800" height="450" loading="lazy">
+                <figcaption>A short caption explaining what the image shows.</figcaption>
+            </figure>
+
+            <!-- A pulled-out quote, e.g. player feedback or a key design principle -->
+            <blockquote>
+                <p>A quote that deserves emphasis.</p>
+            </blockquote>
+
+            <h3>Smaller Sub-heading</h3>
+            <p>Use h3 for a sub-point inside a section.</p>
+
+        </div>
+
+    </main>
+
+    <footer class="site-footer">
+        <p></p>
+    </footer>
+
+    <script src="../script.js"></script>
+</body>
+</html>

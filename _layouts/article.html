@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<!--
+    JEKYLL LAYOUT FOR ARTICLES
+    Any Markdown file with "layout: article" at the top is turned into a page using
+    this file. {{ page.something }} is filled in from the settings block at the top of
+    the Markdown file, and {{ content }} is the article text converted to HTML.
+    Change the design here once and every article updates.
+-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ page.title }} | Cole Jowaisas</title>
+    {% if page.lead %}<meta name="description" content="{{ page.lead | escape }}">{% endif %}
+    <!-- Lexend font from Google Fonts (weights 300-800) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ '/style.css' | relative_url }}">
+</head>
+<body>
+
+    <header class="site-header">
+        <nav class="nav container">
+            <a href="{{ '/index.html' | relative_url }}" class="logo">Cole Jowaisas</a>
+            <ul class="nav-links">
+                <li><a href="{{ '/index.html#projects' | relative_url }}">Projects</a></li>
+                <li><a href="{{ '/index.html#about' | relative_url }}">About</a></li>
+                <li><a href="{{ '/index.html#contact' | relative_url }}">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="article-page container">
+
+        {% if page.project %}
+        <a href="{{ page.project_url | relative_url }}" class="back-link">&larr; {{ page.project }}</a>
+        {% endif %}
+
+        <header class="article-header">
+            {% if page.label or page.date %}
+            <p class="article-meta">
+                {{ page.label }}{% if page.label and page.date %} &middot; {% endif %}{% if page.date %}{{ page.date | date: "%B %Y" }}{% endif %}
+            </p>
+            {% endif %}
+            <h1>{{ page.title }}</h1>
+            {% if page.lead %}<p class="article-lead">{{ page.lead }}</p>{% endif %}
+        </header>
+
+        {% if page.image %}
+        <img class="article-hero" src="{{ page.image | relative_url }}" alt="{{ page.image_alt | default: page.title }}">
+        {% endif %}
+
+        <div class="article-body">
+            {{ content }}
+        </div>
+
+    </main>
+
+    <footer class="site-footer">
+        <p></p>
+    </footer>
+
+    <script src="{{ '/script.js' | relative_url }}"></script>
+</body>
+</html>

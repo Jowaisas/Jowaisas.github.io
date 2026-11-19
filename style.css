@@ -423,7 +423,7 @@ a:hover {
     background-color: #403b6b;   /* slightly lighter than --surface */
 }
 
-.article-source {
+.article-label {
     font-size: 0.8rem;
     text-transform: uppercase;
     letter-spacing: 0.05em;
@@ -436,8 +436,122 @@ a:hover {
 }
 
 .article-title::after {
-    content: " \2197";   /* ↗ arrow: opens in a new tab */
+    content: " \2192";   /* → arrow */
     color: var(--accent);
+}
+
+.article-summary {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+}
+
+
+/* ===== Article pages (articles/*.html) ===== */
+.article-page {
+    max-width: 760px;   /* narrow column: long text is easier to read */
+    padding-top: 2.5rem;
+    padding-bottom: 4rem;
+}
+
+.back-link {
+    display: inline-block;
+    margin-bottom: 1.5rem;
+}
+
+.article-header {
+    margin-bottom: 2rem;
+}
+
+.article-meta {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-muted);
+    margin-bottom: 0.5rem;
+}
+
+.article-header h1 {
+    font-size: 2.5rem;
+    line-height: 1.15;
+    margin-bottom: 1rem;
+}
+
+.article-lead {
+    font-size: 1.2rem;
+    color: var(--text-muted);
+}
+
+.article-hero {
+    width: 100%;
+    height: auto;
+    border-radius: var(--radius);
+    margin-bottom: 2.5rem;
+}
+
+.article-body {
+    font-size: 1.05rem;
+    line-height: 1.75;
+}
+
+.article-body h2 {
+    font-size: 1.6rem;
+    margin: 2.5rem 0 1rem;
+}
+
+.article-body h3 {
+    font-size: 1.25rem;
+    margin: 2rem 0 0.75rem;
+}
+
+.article-body p,
+.article-body ul,
+.article-body ol {
+    margin-bottom: 1.25rem;
+}
+
+.article-body ul,
+.article-body ol {
+    padding-left: 1.5rem;
+}
+
+.article-body li {
+    margin-bottom: 0.4rem;
+}
+
+.article-body figure {
+    margin: 2rem 0;
+}
+
+.article-body figure img {
+    width: 100%;
+    height: auto;
+    border-radius: var(--radius);
+}
+
+.article-body figcaption {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    text-align: center;
+    margin-top: 0.5rem;
+}
+
+.article-body blockquote {
+    border-left: 3px solid var(--accent);
+    padding: 0.25rem 0 0.25rem 1.25rem;
+    margin: 2rem 0;
+    font-size: 1.15rem;
+    font-style: italic;
+    color: var(--text-muted);
+}
+
+.article-body blockquote p {
+    margin-bottom: 0;
+}
+
+@media (max-width: 600px) {
+    .article-header h1 {
+        font-size: 2rem;
+    }
 }
 
 /* --- Enlarged image viewer (created by script.js) --- */
