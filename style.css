@@ -64,7 +64,7 @@ a:hover {
 }
 
 .logo {
-    color: var(--text);
+    color: var(--accent);   /* cream */
     font-weight: 700;
     font-size: 1.2rem;
 }
@@ -76,7 +76,7 @@ a:hover {
 }
 
 .nav-links a {
-    color: var(--text);
+    color: var(--accent);   /* cream */
 }
 
 /* ===== Hero banner ===== */
@@ -500,7 +500,8 @@ a:hover {
 
 /* Highlights the nav link for the page you're on */
 .nav-links a[aria-current="page"] {
-    color: var(--accent);
+    text-decoration: underline;
+    text-underline-offset: 0.3em;
 }
 
 
