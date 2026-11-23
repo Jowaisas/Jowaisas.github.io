@@ -144,6 +144,7 @@ a:hover {
 }
 
 .project-card {
+    position: relative;   /* the title link's click area stretches over this whole card */
     background-color: var(--surface);
     border-radius: var(--radius);
     overflow: hidden;   /* clips the image to the rounded corners */
@@ -172,8 +173,25 @@ a:hover {
     overflow: hidden;
 }
 
-.project-image-link:hover img {
-    filter: brightness(1.1);   /* slight brighten so it's clear the image is clickable */
+.project-card:hover img {
+    filter: brightness(1.1);   /* slight brighten so it's clear the card is clickable */
+}
+
+/* The title is a link whose click area is stretched over the whole card,
+   so clicking the text (or anywhere else on the card) opens the project page. */
+.project-card-link {
+    color: inherit;
+}
+
+.project-card-link:hover {
+    text-decoration: none;
+}
+
+.project-card-link::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
 }
 
 /* Hover video preview (created by script.js), laid over the capsule image */
