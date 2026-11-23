@@ -1,7 +1,6 @@
 ---
 layout: article
 title: Change in Presentation of Results & Differences in Player Behavior
-label: Design Breakdown
 project: Gambling Research
 project_url: /projects/gambling-research.html
 permalink: /articles/presentation-gambling-research.html

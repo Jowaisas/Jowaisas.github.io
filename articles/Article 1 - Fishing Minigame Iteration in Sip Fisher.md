@@ -1,7 +1,6 @@
 ---
 layout: article
 title: Fishing Minigame Iteration in Sip Fisher
-label: Design Breakdown
 project: Sip Fisher
 project_url: /projects/sip-fisher.html
 permalink: /articles/fishing-minigame-iteration.html

@@ -474,11 +474,6 @@ a:hover {
     font-weight: 600;
 }
 
-.article-title::after {
-    content: " \2192";   /* → arrow */
-    color: var(--accent);
-}
-
 .article-summary {
     color: var(--text-muted);
     font-size: 0.95rem;
