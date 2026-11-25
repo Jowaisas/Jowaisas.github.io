@@ -283,24 +283,26 @@ a:hover {
 .project-layout {
     display: grid;
     grid-template-columns: 2fr 1fr;
-    grid-template-rows: auto 1fr;
     grid-template-areas:
-        "trailer side"
-        "details side";
+        "trailer about"
+        "details experience";
     gap: 2rem 2.5rem;
     align-items: start;
 }
 
-.project-trailer { grid-area: trailer; }
-.project-side    { grid-area: side; }   /* right column: info box, then My Experience */
-.project-details { grid-area: details; }
+/* The project-side wrapper doesn't affect layout; its two boxes are placed in the grid directly,
+   so My Experience lines up with the top of the Details box. */
+.project-side       { display: contents; }
+.project-trailer    { grid-area: trailer; }
+.project-about      { grid-area: about; }
+.project-details    { grid-area: details; }
+.project-experience { grid-area: experience; }
 
-/* My Experience box, under the info box in the right column */
+/* My Experience box, beside the Details box */
 .project-experience {
     background-color: var(--surface);
     border-radius: var(--radius);
     padding: 1.5rem;
-    margin-top: 1.5rem;
 }
 
 .project-experience h2 {
@@ -331,6 +333,15 @@ a:hover {
     background-color: var(--surface);
     border-radius: var(--radius);
     padding: 1.5rem;
+    /* Exactly as tall as the trailer: height 0 stops the text from making the row taller,
+       and min-height 100% stretches the box to fill the row the trailer sets.
+       If the text is longer than that, the box scrolls. */
+    align-self: stretch;
+    height: 0;
+    min-height: 100%;
+    overflow-y: auto;
+    scrollbar-width: thin;   /* slim scrollbar that matches the site, only shown if needed */
+    scrollbar-color: var(--text-muted) transparent;
 }
 
 .project-about h1 {
@@ -346,6 +357,10 @@ a:hover {
 .project-about p {
     color: var(--text-muted);
     margin-bottom: 1rem;
+}
+
+.project-about p:last-child {
+    margin-bottom: 0;   /* no extra space at the bottom of the box */
 }
 
 /* --- 4. Details and roles lists: each in its own box, matching the info box --- */
@@ -391,10 +406,12 @@ a:hover {
             "experience";
     }
 
-    /* Let the info box and My Experience be placed separately on small screens */
-    .project-side       { display: contents; }
-    .project-about      { grid-area: about; }
-    .project-experience { grid-area: experience; margin-top: 0; }
+    /* Stacked on phones, the info box just fits its text */
+    .project-about {
+        height: auto;
+        min-height: 0;
+        overflow-y: visible;
+    }
 }
 
 /* --- 5. Gallery: screenshot grid --- */
