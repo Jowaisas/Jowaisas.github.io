@@ -285,15 +285,37 @@ a:hover {
     grid-template-columns: 2fr 1fr;
     grid-template-rows: auto 1fr;
     grid-template-areas:
-        "trailer about"
-        "details about";
+        "trailer side"
+        "details side";
     gap: 2rem 2.5rem;
     align-items: start;
 }
 
 .project-trailer { grid-area: trailer; }
-.project-about   { grid-area: about; }
+.project-side    { grid-area: side; }   /* right column: info box, then My Experience */
 .project-details { grid-area: details; }
+
+/* My Experience box, under the info box in the right column */
+.project-experience {
+    background-color: var(--surface);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.project-experience h2 {
+    font-size: 1.35rem;
+    margin-bottom: 0.75rem;
+}
+
+.project-experience p {
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+}
+
+.project-experience p:last-child {
+    margin-bottom: 0;
+}
 
 /* --- 2. Trailer: always 16:9, whatever the column width --- */
 .project-trailer iframe {
@@ -365,8 +387,14 @@ a:hover {
         grid-template-areas:
             "trailer"
             "about"
-            "details";
+            "details"
+            "experience";
     }
+
+    /* Let the info box and My Experience be placed separately on small screens */
+    .project-side       { display: contents; }
+    .project-about      { grid-area: about; }
+    .project-experience { grid-area: experience; margin-top: 0; }
 }
 
 /* --- 5. Gallery: screenshot grid --- */
