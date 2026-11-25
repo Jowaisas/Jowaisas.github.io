@@ -5,7 +5,7 @@ project: Sip Fisher
 project_url: /projects/sip-fisher.html
 permalink: /articles/sipfisher-problem-retro.html
 # lead: One or two sentences summarizing the article, shown under the title.
-image: /assets/images/SipFisherScreenshot1.webp
+image: /assets/images/SipFisherScreenshot8.webp
 ---
 
 ## The Game Did Well

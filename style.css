@@ -490,6 +490,78 @@ a:hover {
     margin-top: 3rem;
 }
 
+/* --- Store links (e.g. Steam, Nintendo eShop) --- */
+.stores-section {
+    margin-top: 3rem;
+}
+
+.stores-section h2 {
+    font-size: 1.35rem;
+    margin-bottom: 1rem;
+}
+
+.stores {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1rem;
+}
+
+/* Capsule image on the left, store name and button on the right */
+.store-card {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    background-color: var(--surface);
+    border-radius: var(--radius);
+    padding: 1rem;
+    color: var(--text);
+    transition: transform 0.15s ease, background-color 0.15s ease;
+}
+
+.store-card:hover {
+    text-decoration: none;
+    transform: translateY(-2px);
+    background-color: #403b6b;   /* slightly lighter than --surface */
+}
+
+.store-card img {
+    width: 45%;
+    height: auto;
+    flex-shrink: 0;
+    aspect-ratio: 1232 / 706;
+    object-fit: cover;
+}
+
+.store-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+}
+
+.store-platform {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-muted);
+}
+
+.store-name {
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.store-info .button {
+    margin-top: 0.5rem;
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+}
+
+/* The button lifts with the card, not on its own */
+.store-card:hover .button {
+    transform: none;
+}
+
 /* Hide the whole section (heading included) until it has at least one article */
 .articles-section:not(:has(.article-card)) {
     display: none;
