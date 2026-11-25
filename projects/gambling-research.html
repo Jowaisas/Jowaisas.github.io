@@ -94,19 +94,7 @@ project: Gambling Research
 
         </div>
 
-        <!-- 5. Gallery: click a screenshot to enlarge it (handled by script.js).
-             To add one, copy an <a> line and change both the href and the src.
-             Placeholder: every screenshot uses GamblingResearchPage.jpg for now. -->
-        <section class="gallery-section">
-            <h2>Gallery</h2>
-            <div class="gallery">
-                <a href="../assets/images/GamblingResearchPage.jpg" class="gallery-item"><img src="../assets/images/GamblingResearchPage.jpg" alt="Gambling Research screenshot 1" width="800" height="450" loading="lazy"></a>
-                <a href="../assets/images/GamblingResearchPage.jpg" class="gallery-item"><img src="../assets/images/GamblingResearchPage.jpg" alt="Gambling Research screenshot 2" width="800" height="450" loading="lazy"></a>
-                <a href="../assets/images/GamblingResearchPage.jpg" class="gallery-item"><img src="../assets/images/GamblingResearchPage.jpg" alt="Gambling Research screenshot 3" width="800" height="450" loading="lazy"></a>
-            </div>
-        </section>
-
-        <!-- 6. Related articles: filled in automatically when the site is built.
+        <!-- 5. Related articles: filled in automatically when the site is built.
              Every article whose settings block has the same "project:" as this page is listed,
              newest first. Nothing to edit here. The section stays hidden until there is one. -->
         <section class="articles-section">
@@ -121,6 +109,18 @@ project: Gambling Research
                     {% if article.date %}<span class="article-date">{{ article.date | date: "%B %Y" }}</span>{% endif %}
                 </a>
                 {% endfor %}
+            </div>
+        </section>
+
+        <!-- 6. Gallery: click a screenshot to enlarge it (handled by script.js).
+             To add one, copy an <a> line and change both the href and the src.
+             Placeholder: every screenshot uses GamblingResearchPage.jpg for now. -->
+        <section class="gallery-section">
+            <h2>Gallery</h2>
+            <div class="gallery">
+                <a href="../assets/images/GamblingResearchPage.jpg" class="gallery-item"><img src="../assets/images/GamblingResearchPage.jpg" alt="Gambling Research screenshot 1" width="800" height="450" loading="lazy"></a>
+                <a href="../assets/images/GamblingResearchPage.jpg" class="gallery-item"><img src="../assets/images/GamblingResearchPage.jpg" alt="Gambling Research screenshot 2" width="800" height="450" loading="lazy"></a>
+                <a href="../assets/images/GamblingResearchPage.jpg" class="gallery-item"><img src="../assets/images/GamblingResearchPage.jpg" alt="Gambling Research screenshot 3" width="800" height="450" loading="lazy"></a>
             </div>
         </section>
 

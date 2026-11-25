@@ -247,6 +247,35 @@ a:hover {
     font-size: 0.95rem;
 }
 
+/* ===== About section (home page) ===== */
+.about-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);   /* photo 40%, text 60% */
+    gap: 2rem;
+    align-items: start;
+}
+
+.about-photo {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: var(--radius);
+}
+
+.about-text p {
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+}
+
+/* Phones: photo on top, text underneath */
+@media (max-width: 700px) {
+    .about-layout {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+    }
+}
+
 /* ===== Individual project pages (projects/*.html) ===== */
 .project-page {
     padding-top: 2rem;
@@ -416,7 +445,7 @@ a:hover {
 
 /* --- 5. Gallery: screenshot grid --- */
 .gallery-section {
-    margin-top: 1rem;
+    margin-top: 3rem;   /* same gap as above Related Articles */
 }
 
 .gallery-section h2 {
