@@ -326,9 +326,16 @@ a:hover {
     margin-bottom: 1rem;
 }
 
-/* --- 4. Details and roles lists --- */
+/* --- 4. Details and roles lists: each in its own box, matching the info box --- */
 .project-details section {
-    margin-bottom: 2rem;
+    background-color: var(--surface);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.project-details section:last-child {
+    margin-bottom: 0;
 }
 
 .project-details h2 {
